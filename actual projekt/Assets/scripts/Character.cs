@@ -11,6 +11,9 @@ public class Character : MonoBehaviour
     public static int zivoty = 100;
     private Waypoints Wpoints;
     private int waypointIndex;
+    public int maximumZivotu = 100;
+    public int damageDone;
+    
     
     
     void Start()
@@ -19,6 +22,7 @@ public class Character : MonoBehaviour
     }
     void Update()
     {
+        
         transform.position = Vector2.MoveTowards(transform.position, Wpoints.waypoints[waypointIndex].position, speed * Time.deltaTime);
         
         Vector3 smer = Wpoints.waypoints[waypointIndex].position - transform.position;
@@ -32,14 +36,14 @@ public class Character : MonoBehaviour
             else
             {
                 Destroy(gameObject);
-                Spawner.zivoty--;
+                Spawner.zivoty-= damageDone;
             } 
         }
         if(zivoty<= 0)
         {
             Destroy(gameObject);
             Spawner.penize += 100;
-            zivoty = 100;
+            zivoty = maximumZivotu;
 
         }
         

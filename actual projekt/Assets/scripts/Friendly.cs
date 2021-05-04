@@ -10,7 +10,7 @@ public class Friendly : MonoBehaviour
     public int damage;
     public float range = 1f;
     private int counter;
-    
+    public int shootDelay = 200;
     private float rotace;
     public GameObject pfPecka;
     public Transform poziceStrelby;
@@ -46,7 +46,7 @@ public class Friendly : MonoBehaviour
     {
         upravCil();
         counter++;
-        if(counter >= 200)
+        if(counter >= shootDelay)
         {
             Utok();
             counter = 0;
