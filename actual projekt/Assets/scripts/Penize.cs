@@ -7,6 +7,9 @@ public class Penize : MonoBehaviour
 {
     
     Text penize;
+    bool koupenaTresenJedna = false;
+    bool koupenaTresenDva = false;
+ 
 
     private void Start()
     {
@@ -15,5 +18,46 @@ public class Penize : MonoBehaviour
     private void Update()
     {
         penize.text = "Peníze: " + Spawner.penize.ToString();
+
+
+    }
+
+    public void ZakoupenaTresenJedna()
+    {
+        if (koupenaTresenJedna == false && koupenaTresenDva == false)
+        {
+            Spawner.penize = Spawner.penize - 150;
+            koupenaTresenJedna = true;
+
+        }
+        else if (koupenaTresenDva == true)
+        {
+            Spawner.penize = Spawner.penize + 300;
+            koupenaTresenDva = false;
+        }
+        else
+        {
+            Spawner.penize = Spawner.penize + 150;
+            koupenaTresenJedna = false;
+        }
+    }
+
+    public void ZakoupenaTresenDva()
+    {
+        if (koupenaTresenJedna == false && koupenaTresenDva == false)
+        {
+            Spawner.penize = Spawner.penize - 300;
+            koupenaTresenDva = true;
+        }
+        else if (koupenaTresenJedna == true)
+        {
+            Spawner.penize = Spawner.penize + 150;
+            koupenaTresenJedna = false;
+        }
+        else
+        {
+            Spawner.penize = Spawner.penize + 300;
+            koupenaTresenDva = false;
+        }
     }
 }

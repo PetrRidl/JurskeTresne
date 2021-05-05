@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637525587536034916
+      ticks: 637557733370000000
     m_Hash: 2493206812
   m_LockFileStatus:
     m_FilePath: "E:/Pepe/\u0161kola/programko/Jurske_tresne/actual projekt/Packages/packages-lock.json"
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637525587878611159
+      ticks: 637558060833391349
     m_Hash: 2548674612
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
