@@ -3,7 +3,14 @@ guid: f7af9853433611748b1b1932e19cfffb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - tlacitko: {instanceID: 0}
+  - tresenBasic: {fileID: 8596619277449218325, guid: 8c63b64ea5a1834489ca53ae1fba7477,
+      type: 3}
+  - tresenSniper: {fileID: 4438182773080831429, guid: ac01d1b47f3d5da4f999ca9c8369ed6f,
+      type: 3}
+  - tresenRambo: {fileID: 6948826678579811020, guid: 8d8cba641b14b4f46b2f90ec5c4acb72,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

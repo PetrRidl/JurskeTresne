@@ -9,8 +9,9 @@ public class Friendly : MonoBehaviour
     private Transform cil;
     public int damage;
     public float range = 1f;
+    public int shootDelay;
     private int counter;
-    public int shootDelay = 200;
+    
     private float rotace;
     public GameObject pfPecka;
     public Transform poziceStrelby;
@@ -35,6 +36,7 @@ public class Friendly : MonoBehaviour
         {
             cil = nejblizsi.transform;
         }
+        if(nejkratsiVzdalenost > range)cil = null;
         
     }
     void Start()
@@ -51,13 +53,16 @@ public class Friendly : MonoBehaviour
             Utok();
             counter = 0;
         }
-        
-        
-        Vector3 dir = cil.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = lookRotation.eulerAngles;
-        transform.rotation = Quaternion.Euler(0f, 0f, 0f); 
 
+        if (cil != null)
+        {
+            Vector3 dir = cil.position - transform.position;
+            //Quaternion lookRotation = Quaternion.LookRotation(dir);
+            //Vector3 rotation = lookRotation.eulerAngles;
+            //transform.rotation = Quaternion.Euler(0f, 0f, rotation.z); 
+
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
+        }
     }
 
     private void Utok()

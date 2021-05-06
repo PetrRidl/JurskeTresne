@@ -1,48 +1,90 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Obchod : MonoBehaviour
 {
-    bool koupenaTresenJedna = false;
-    bool koupenaTresenDva = false;
-    
-    public void ZakoupenaTresenJedna()
-    {
-        if (koupenaTresenJedna == false && koupenaTresenDva == false)
-        {
-            Spawner.penize = Spawner.penize - 150;
-            koupenaTresenJedna = true;
+    int koupenaTresen;
+    bool jeKoupenaTresen;
+    public GameObject tlacitko;
+    public GameObject tresenBasic;
+    public GameObject tresenSniper;
+    public GameObject tresenRambo;
 
-        }
-        else if (koupenaTresenDva == true)
+    void Start()
+    {
+        tlacitko.SetActive(false);
+    }
+
+    public void polozitTresen()
+    {
+        Vector3 poziceTlacitka = GameObject.FindGameObjectWithTag("Vez").transform.position;
+        poziceTlacitka[2] = -1;
+        if (koupenaTresen == 150)
         {
-            Spawner.penize = Spawner.penize + 300;
-            koupenaTresenDva = false;
+            Instantiate(tresenBasic, poziceTlacitka, transform.rotation);
+            tlacitko.SetActive(false);
+            jeKoupenaTresen = false;
         }
-        else
+        else if (koupenaTresen == 500)
         {
-            Spawner.penize = Spawner.penize + 150;
-            koupenaTresenJedna = false;
+            Instantiate(tresenSniper, poziceTlacitka, transform.rotation);
+            tlacitko.SetActive(false);
+            jeKoupenaTresen = false;
+        }
+        else if (koupenaTresen == 800)
+        {
+            Instantiate(tresenRambo, poziceTlacitka, transform.rotation);
+            tlacitko.SetActive(false);
+            jeKoupenaTresen = false;
         }
     }
 
-    public void ZakoupenaTresenDva()
+    public void TresenBasic()
     {
-        if (koupenaTresenJedna == false && koupenaTresenDva == false)
+        if (jeKoupenaTresen)
         {
-            Spawner.penize = Spawner.penize - 300;
-            koupenaTresenDva = true;
-        }
-        else if (koupenaTresenJedna == true)
-        {
-            Spawner.penize = Spawner.penize + 150;
-            koupenaTresenJedna = false;
+            Spawner.penize = Spawner.penize + koupenaTresen;
+            jeKoupenaTresen = false;
         }
         else
         {
-            Spawner.penize = Spawner.penize + 300;
-            koupenaTresenDva = false;
+            koupenaTresen = 150;
+            Spawner.penize = Spawner.penize - 150;
+            jeKoupenaTresen = true;
+            tlacitko.SetActive(true);
+        }
+    }
+
+    public void TresenSniper()
+    {
+        if (jeKoupenaTresen)
+        {
+            Spawner.penize = Spawner.penize + koupenaTresen;
+            jeKoupenaTresen = false;
+        }
+        else
+        {
+            koupenaTresen = 500;
+            Spawner.penize = Spawner.penize - 500;
+            jeKoupenaTresen = true;
+            tlacitko.SetActive(true);
+        }
+    }
+    public void TresenRambo()
+    {
+        if (jeKoupenaTresen)
+        {
+            Spawner.penize = Spawner.penize + koupenaTresen;
+            jeKoupenaTresen = false;
+        }
+        else
+        {
+            koupenaTresen = 800;
+            Spawner.penize = Spawner.penize - 800;
+            jeKoupenaTresen = true;
+            tlacitko.SetActive(true);
         }
     }
 }

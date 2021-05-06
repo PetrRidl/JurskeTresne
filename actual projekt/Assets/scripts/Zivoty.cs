@@ -14,6 +14,6 @@ public class Zivoty : MonoBehaviour
     }
     private void Update()
     {
-        zivoty.text = "Životy: " + Spawner.zivoty.ToString();
+        zivoty.text = Spawner.zivoty.ToString();
     }
 }

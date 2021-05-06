@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Waypoints
   - Nepritel
+  - Vez
   layers:
   - Default
   - TransparentFX

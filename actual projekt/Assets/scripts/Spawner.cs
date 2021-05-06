@@ -10,6 +10,10 @@ public class Spawner : MonoBehaviour
     public static int zivoty = 100;
     public static int penize = 1000;
     public GameObject Dinosaurus_basic;
+    public GameObject Dinosaurus_fast;
+    public GameObject Dinosaurus_strong;
+    public GameObject Dinosaurus_tank;
+    
     public Transform SpawnPoint;
     public GameObject Vitezstvi;
     public Transform spawn_Konec;
@@ -30,6 +34,7 @@ public class Spawner : MonoBehaviour
        {
            StartCoroutine(wave1());
            wave++;
+           
        }
         else if(wave == 2)
        {
@@ -135,16 +140,17 @@ public class Spawner : MonoBehaviour
     }
     IEnumerator wave1()
     {
-        for(int i = 0; i < wave; i++)
+        for(int i = 0; i < 4; i++)
         {
             Instantiate(Dinosaurus_basic, SpawnPoint.position, SpawnPoint.rotation);
             yield return new WaitForSeconds(0.5f);
         }
         
+        
     }
     IEnumerator wave2()
     {
-        for(int i = 0; i < wave; i++)
+        for(int i = 0; i < 6; i++)
         {
             Instantiate(Dinosaurus_basic, SpawnPoint.position, SpawnPoint.rotation);
             yield return new WaitForSeconds(0.5f);
@@ -152,66 +158,75 @@ public class Spawner : MonoBehaviour
     }
     IEnumerator wave3()
     {
-        for(int i = 0; i < wave; i++)
+        for(int i = 0; i < 9; i++)
         {
 
             Instantiate(Dinosaurus_basic, SpawnPoint.position, SpawnPoint.rotation);
             yield return new WaitForSeconds(0.5f);
         }
+        Instantiate(Dinosaurus_strong, SpawnPoint.position, SpawnPoint.rotation);
     }
     IEnumerator wave4()
     {
-      for(int i = 0; i < wave; i++)
+      for(int i = 0; i < 5; i++)
         {
 
-            Instantiate(Dinosaurus_basic, SpawnPoint.position, SpawnPoint.rotation);
+            Instantiate(Dinosaurus_strong, SpawnPoint.position, SpawnPoint.rotation);
             yield return new WaitForSeconds(0.5f);
         }
     }
     IEnumerator wave5()
     {
-        for(int i = 0; i < wave; i++)
+        for(int i = 0; i < 7; i++)
         {
 
-            Instantiate(Dinosaurus_basic, SpawnPoint.position, SpawnPoint.rotation);
+            Instantiate(Dinosaurus_strong, SpawnPoint.position, SpawnPoint.rotation);
             yield return new WaitForSeconds(0.5f);
         }
     }
     IEnumerator wave6()
     {
-        for(int i = 0; i < wave; i++)
+        for(int i = 0; i < 9; i++)
         {
-            Instantiate(Dinosaurus_basic, SpawnPoint.position, SpawnPoint.rotation);
+            Instantiate(Dinosaurus_strong, SpawnPoint.position, SpawnPoint.rotation);
             yield return new WaitForSeconds(0.5f);
         }
     }
     IEnumerator wave7()
     {
-        for(int i = 0; i < wave; i++)
+        for(int i = 0; i < 5; i++)
         {
-            Instantiate(Dinosaurus_basic, SpawnPoint.position, SpawnPoint.rotation);
+            Instantiate(Dinosaurus_strong, SpawnPoint.position, SpawnPoint.rotation);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(Dinosaurus_fast, SpawnPoint.position, SpawnPoint.rotation);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(Dinosaurus_strong, SpawnPoint.position, SpawnPoint.rotation);
             yield return new WaitForSeconds(0.5f);
         }
     }
     IEnumerator wave8()
     {
-        for(int i = 0; i < wave; i++)
+        for(int i = 0; i < 10; i++)
         {
             Instantiate(Dinosaurus_basic, SpawnPoint.position, SpawnPoint.rotation);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(Dinosaurus_fast, SpawnPoint.position, SpawnPoint.rotation);
             yield return new WaitForSeconds(0.5f);
         }
     }
     IEnumerator wave9()
     {
-        for(int i = 0; i < wave; i++)
+        for(int i = 0; i < 10; i++)
         {
-            Instantiate(Dinosaurus_basic, SpawnPoint.position, SpawnPoint.rotation);
+            Instantiate(Dinosaurus_tank, SpawnPoint.position, SpawnPoint.rotation);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(Dinosaurus_fast, SpawnPoint.position, SpawnPoint.rotation);
             yield return new WaitForSeconds(0.5f);
         }
     }
     IEnumerator wave10()
     {
-        for(int i = 0; i < wave; i++)
+        for(int i = 0; i < 10; i++)
         {
             Instantiate(Dinosaurus_basic, SpawnPoint.position, SpawnPoint.rotation);
             yield return new WaitForSeconds(0.5f);
@@ -222,6 +237,12 @@ public class Spawner : MonoBehaviour
         for(int i = 0; i < wave; i++)
         {
             Instantiate(Dinosaurus_basic, SpawnPoint.position, SpawnPoint.rotation);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(Dinosaurus_strong, SpawnPoint.position, SpawnPoint.rotation);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(Dinosaurus_tank, SpawnPoint.position, SpawnPoint.rotation);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(Dinosaurus_fast, SpawnPoint.position, SpawnPoint.rotation);
             yield return new WaitForSeconds(0.5f);
         }
     }
