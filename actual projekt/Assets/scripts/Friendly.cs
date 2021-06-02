@@ -53,15 +53,11 @@ public class Friendly : MonoBehaviour
             Utok();
             counter = 0;
         }
-
-        if (cil != null)
+        
+        if(cil != null)
         {
-            Vector3 dir = cil.position - transform.position;
-            //Quaternion lookRotation = Quaternion.LookRotation(dir);
-            //Vector3 rotation = lookRotation.eulerAngles;
-            //transform.rotation = Quaternion.Euler(0f, 0f, rotation.z); 
-
-            transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
+        Vector3 dir = cil.position - transform.position;     
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
         }
     }
 
@@ -72,9 +68,11 @@ public class Friendly : MonoBehaviour
         //    Pecka.Create(poziceStrelby, UtilsClass.GetMouseWorldPosition());
             
         //}
+        if(cil != null){
         GameObject PeckaGO = (GameObject) Instantiate(pfPecka, poziceStrelby.position, poziceStrelby.rotation);
         Pecka pecka = PeckaGO.GetComponent<Pecka>();
         if(pecka != null)pecka.nastavCil(cil, damage);
+        }
     }
 
     void OnDrawGizmosSelected ()

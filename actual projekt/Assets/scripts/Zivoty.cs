@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Zivoty : MonoBehaviour
 {
-    
+    private int counter;    
     Text zivoty;
 
     private void Start()
@@ -14,6 +14,12 @@ public class Zivoty : MonoBehaviour
     }
     private void Update()
     {
-        zivoty.text = Spawner.zivoty.ToString();
+        counter++;
+        if(counter >= 50)
+        {
+            zivoty.text = Spawner.zivoty.ToString();
+            counter = 0;
+        }
+        
     }
 }

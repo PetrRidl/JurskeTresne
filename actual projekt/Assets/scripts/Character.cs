@@ -43,12 +43,14 @@ public class Character : MonoBehaviour
             {
                 Destroy(gameObject);
                 Spawner.zivoty -= damageDo;
+                Spawner.killed++;
             } 
         }
         if(myHP<= 0)
         {
             Destroy(gameObject);
             Spawner.penize += killIncome;
+            Spawner.killed++;
             
 
         }

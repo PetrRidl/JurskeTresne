@@ -12,6 +12,7 @@ public class Obchod : MonoBehaviour
     public GameObject tresenSniper;
     public GameObject tresenRambo;
 
+
     void Start()
     {
         tlacitko.SetActive(false);
@@ -19,23 +20,24 @@ public class Obchod : MonoBehaviour
 
     public void polozitTresen()
     {
-        Vector3 poziceTlacitka = GameObject.FindGameObjectWithTag("Vez").transform.position;
-        poziceTlacitka[2] = -1;
         if (koupenaTresen == 150)
         {
-            Instantiate(tresenBasic, poziceTlacitka, transform.rotation);
+            var mousePositionInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Instantiate(tresenBasic, new Vector3(mousePositionInWorld.x, mousePositionInWorld.y, 0), Quaternion.identity);
             tlacitko.SetActive(false);
             jeKoupenaTresen = false;
         }
         else if (koupenaTresen == 500)
         {
-            Instantiate(tresenSniper, poziceTlacitka, transform.rotation);
+            var mousePositionInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Instantiate(tresenSniper, new Vector3(mousePositionInWorld.x, mousePositionInWorld.y, 0), Quaternion.identity);
             tlacitko.SetActive(false);
             jeKoupenaTresen = false;
         }
         else if (koupenaTresen == 800)
         {
-            Instantiate(tresenRambo, poziceTlacitka, transform.rotation);
+            var mousePositionInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Instantiate(tresenRambo, new Vector3(mousePositionInWorld.x, mousePositionInWorld.y, 0), Quaternion.identity);
             tlacitko.SetActive(false);
             jeKoupenaTresen = false;
         }
@@ -52,8 +54,15 @@ public class Obchod : MonoBehaviour
         {
             koupenaTresen = 150;
             Spawner.penize = Spawner.penize - 150;
-            jeKoupenaTresen = true;
-            tlacitko.SetActive(true);
+            if (Spawner.penize <= 0)
+            {
+                Spawner.penize = Spawner.penize + 150;
+            }
+            else
+            {
+                jeKoupenaTresen = true;
+                tlacitko.SetActive(true);
+            }
         }
     }
 
@@ -68,8 +77,15 @@ public class Obchod : MonoBehaviour
         {
             koupenaTresen = 500;
             Spawner.penize = Spawner.penize - 500;
-            jeKoupenaTresen = true;
-            tlacitko.SetActive(true);
+            if (Spawner.penize <= 0)
+            {
+                Spawner.penize = Spawner.penize + 500;
+            }
+            else
+            {
+                jeKoupenaTresen = true;
+                tlacitko.SetActive(true);
+            }
         }
     }
     public void TresenRambo()
@@ -83,8 +99,15 @@ public class Obchod : MonoBehaviour
         {
             koupenaTresen = 800;
             Spawner.penize = Spawner.penize - 800;
-            jeKoupenaTresen = true;
-            tlacitko.SetActive(true);
+            if (Spawner.penize <= 0)
+            {
+                Spawner.penize = Spawner.penize + 800;
+            }
+            else
+            {
+                jeKoupenaTresen = true;
+                tlacitko.SetActive(true);
+            }
         }
     }
 }
