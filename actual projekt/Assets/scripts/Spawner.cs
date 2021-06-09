@@ -50,15 +50,15 @@ public class Spawner : MonoBehaviour
         switch (difficulty)
         {
             case 1:
-            toKill = 4; //701
+            toKill = 701;
             break;
 
             case 2:
-            toKill = 4; //1190
+            toKill = 1190;
             break;
 
             case 3:
-            toKill = 4; //1709
+            toKill = 1709;
             break;
         }
         print(level);
