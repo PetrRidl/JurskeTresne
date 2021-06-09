@@ -6,7 +6,7 @@ public class Pecka : MonoBehaviour
 {
     private Transform cil;
     private int damage;
-
+    private bool staloSe = false;
     public void nastavCil(Transform _cil, int _damage)
     {
         cil = _cil;
@@ -14,11 +14,21 @@ public class Pecka : MonoBehaviour
     }   
 
    
-    private float speed = 20f;
-
+    private int speed = 30;
+    private int startSpeed;
+    void Start()
+    {
+        startSpeed = speed;
+    }
     private void Update()
     {
-
+        if(Spawner.doubleS == true && staloSe == false)
+        {
+            speed = speed * 2;
+            staloSe = true;
+        }
+        else speed = startSpeed;
+        if(Spawner.doubleS == false && staloSe == true)staloSe = false;
         if(cil == null)
         {
             Destroy(gameObject);

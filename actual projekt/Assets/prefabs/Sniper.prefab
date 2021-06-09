@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   range: 20
-  shootDelay: 400
+  shootDelay: 55
   pfPecka: {fileID: 5141040572605353072, guid: 09e926f7234494f40a2716db7f27c01e, type: 3}
   poziceStrelby: {fileID: 564172559341745983}
   tresen: {fileID: 0}

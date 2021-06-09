@@ -126,9 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d577a9db276330c46a1bb3e502831f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 30
   range: 1.5
-  shootDelay: 50
+  shootDelay: 8
   pfPecka: {fileID: 5141040572605353072, guid: 09e926f7234494f40a2716db7f27c01e, type: 3}
   poziceStrelby: {fileID: 1692700505908579900}
   tresen: {fileID: 0}

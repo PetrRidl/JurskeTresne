@@ -15,6 +15,6 @@ public class Odminuti : MonoBehaviour
     void Update()
     {
         counter++;
-        if(counter >= 2000)Destroy(gameObject);
+        if(counter >= 200)Destroy(gameObject);
     }
 }

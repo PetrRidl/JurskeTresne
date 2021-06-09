@@ -10,6 +10,7 @@ public class Friendly : MonoBehaviour
     public int damage;
     public float range = 1f;
     public int shootDelay;
+    public int startShootDelay;
     private int counter;
     
     private float rotace;
@@ -17,6 +18,7 @@ public class Friendly : MonoBehaviour
     public Transform poziceStrelby;
     public Transform tresen;
     private string nazevNepritele = "Nepritel";
+    private bool staloSe = false;
 
     void upravCil()
     {
@@ -41,11 +43,19 @@ public class Friendly : MonoBehaviour
     }
     void Start()
     {
+        startShootDelay = shootDelay;
         //InvokeRepeating("upravCil", 0f, 0.5f);
     }
     
     void Update()
     {
+        if(Spawner.doubleS == true && staloSe == false)
+        {
+            shootDelay = shootDelay/2;
+            staloSe = true;
+        }
+        else shootDelay = startShootDelay;
+        if(Spawner.doubleS == false && staloSe == true)staloSe = false;
         upravCil();
         counter++;
         if(counter >= shootDelay)

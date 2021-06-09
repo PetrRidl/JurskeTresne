@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public float speed;
-    
+    public int speed;
+    public int pocatecniRychlost;
     public int maxHP;
     private Waypoints Wpoints;
     private int waypointIndex;
@@ -16,15 +16,24 @@ public class Character : MonoBehaviour
     public int damageDo;
     public static int damageGot;
     public int killIncome;
+    private bool staloSe = false;
     
     
     void Start()
     {
+        pocatecniRychlost = speed;
         Wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
         myHP = maxHP;
     }
     void Update()
     {
+        if(Spawner.doubleS == true && staloSe == false)
+        {
+            speed = speed * 2;
+            staloSe = true;
+        }
+        else speed = pocatecniRychlost;
+        if(Spawner.doubleS == false && staloSe == true)staloSe = false;
         if(damageGot != null){
             myHP -= damageGot;
             damageGot = 0;

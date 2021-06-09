@@ -98,4 +98,4 @@ MonoBehaviour:
   speed: 2.5
   maxHP: 400
   damageDo: 20
-  killIncome: 400
+  killIncome: 200
